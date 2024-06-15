@@ -20,5 +20,10 @@ func StartConnection() *DBConn {
 		panic(err)
 	}
 
+	db.AutoMigrate(
+		&User{},
+		&Item{},
+	)
+
 	return &DBConn{db}
 }
