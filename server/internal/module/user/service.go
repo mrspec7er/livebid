@@ -16,7 +16,7 @@ func (s *Service) Create(user *database.User) (int, error) {
 }
 
 func (s *Service) FindOne(user *database.User, id string) (int, error) {
-	err := s.Store.First(&user, id).Error
+	err := s.Store.First(&user, "id = ?", id).Error
 	if err != nil {
 		return 400, err
 	}
@@ -25,7 +25,7 @@ func (s *Service) FindOne(user *database.User, id string) (int, error) {
 }
 
 func (s *Service) Delete(user *database.User, id string) (int, error) {
-	err := s.Store.Delete(&user, id).Error
+	err := s.Store.Delete(&user, "id = ?", id).Error
 	if err != nil {
 		return 400, err
 	}

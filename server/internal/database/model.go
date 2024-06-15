@@ -7,7 +7,7 @@ import (
 )
 
 type User struct {
-	ID            string         `json:"id" gorm:"type:varchar(255)"`
+	ID            string         `json:"id" gorm:"primaryKey; index:priority:1; type:varchar(63)"`
 	Picture       string         `json:"picture" gorm:"type:text"`
 	Email         string         `json:"email" gorm:"type:varchar(63)"`
 	VerifiedEmail bool           `json:"verified_email"`
