@@ -6,6 +6,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/mrspec7er/livebid/server/internal/module/item"
 	"github.com/mrspec7er/livebid/server/internal/module/user"
 )
 
@@ -20,6 +21,7 @@ func (s Config) RegisterRoutes() http.Handler {
 	})
 
 	router.Route("/users", user.Router(*s.DB))
+	router.Route("/items", item.Router(*s.DB))
 
 	return router
 }
