@@ -35,3 +35,13 @@ type Item struct {
 	UpdatedAt   time.Time
 	DeletedAt   gorm.DeletedAt `gorm:"index"`
 }
+
+type TradeMessage struct {
+	ID          string `json:"id" gorm:"primaryKey; index:priority:1; type:varchar(63)"`
+	CreatorID   string `json:"creatorId" gorm:"type:varchar(63)"`
+	Creator     *User  `json:"creator"`
+	ItemNumber  string `json:"itemNumber" gorm:"type:varchar(63)"`
+	Item        *Item  `json:"item"`
+	CreatorItem bool   `json:"creatorItem"`
+	Message     string `json:"message" gorm:"type:text"`
+}
