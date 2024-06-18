@@ -22,9 +22,9 @@ type User struct {
 
 type Item struct {
 	Number      string `json:"number" gorm:"primaryKey; index:priority:1; type:varchar(63)"`
-	CreatorID   string `json:"creatorId" gorm:"type:bigint"`
+	CreatorID   string `json:"creatorId" gorm:"type:varchar(63)"`
 	Creator     *User  `json:"creator"`
-	OwnerID     string `json:"ownerId" gorm:"type:bigint; default:null"`
+	OwnerID     string `json:"ownerId" gorm:"type:varchar(63); default:null"`
 	Owner       *User  `json:"owner"`
 	Status      string `json:"status" gorm:"type:varchar(63)"`
 	ApprovedBy  string `json:"approvedBy" gorm:"type:varchar(255)"`
